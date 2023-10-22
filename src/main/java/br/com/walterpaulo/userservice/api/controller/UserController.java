@@ -1,12 +1,11 @@
 package br.com.walterpaulo.userservice.api.controller;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,22 +20,16 @@ import br.com.walterpaulo.userservice.domain.service.UserService;
  * UserController
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/user")
 public class UserController {
 
-    private final UserService service;
-    private final UserMapper mapper;
-    private final Logger log = LoggerFactory.getLogger(UserController.class);
-
+    @Autowired
+    private UserService service;
+    @Autowired
+    private UserMapper mapper;
 
     @GetMapping
     public ResponseEntity<List<UserResponse>> listarTodos() {
-
-        log.trace("trace");
-        log.debug("debug");
-        log.info("info");
-        log.warn("warn");
-        log.error("error");
 
         List<UserResponse> userResponses = service.getUsers()
                 .stream()
@@ -45,6 +38,8 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.OK).body(userResponses);
     }
+
+    
 
     
 }

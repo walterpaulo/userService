@@ -11,10 +11,15 @@ import br.com.walterpaulo.userservice.domain.entity.User;
 import lombok.RequiredArgsConstructor;
 
 @Component
-@RequiredArgsConstructor
 public class UserMapper {
+    
+    // private final ModelMapper mapper;
+
     private final ModelMapper mapper;
 
+    public UserMapper(ModelMapper modelMapper) {
+        this.mapper = modelMapper;
+    }
 
     public UserResponse toUserResponse(User user) {
         return mapper.map(user, UserResponse.class);

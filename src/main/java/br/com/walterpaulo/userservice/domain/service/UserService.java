@@ -1,5 +1,6 @@
 package br.com.walterpaulo.userservice.domain.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,9 @@ public class UserService {
         User user1 = new User();
         user1.setNome("Walter");
         user1.setCpf("123");
+        user1.setEmail("walter@walter.com.br");
+        user1.setSobrenome("paulo");
+        user1.setDataCadastro(LocalDateTime.now());
         Endereco enderUser1 = new Endereco();
         enderUser1.setRua("rua a");
         enderUser1.setNumero("3");
@@ -31,6 +35,10 @@ public class UserService {
         User user2 = new User();
         user2.setNome("Walter");
         user2.setCpf("567");
+        user2.setEmail("walter@walter.com.br");
+        user2.setSobrenome("paulo");
+        user2.setDataCadastro(LocalDateTime.now());
+
         Endereco enderUser2 = new Endereco();
         enderUser2.setRua("rua a");
         enderUser2.setNumero("3");
@@ -44,6 +52,9 @@ public class UserService {
     }
 
     public List<User> getUsers(){
+        if(usuarios == null){
+            return new ArrayList<User>();
+        }
         return usuarios;
     }
 }
