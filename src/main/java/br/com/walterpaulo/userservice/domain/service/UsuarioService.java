@@ -7,16 +7,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import br.com.walterpaulo.userservice.domain.entity.Endereco;
-import br.com.walterpaulo.userservice.domain.entity.User;
+import br.com.walterpaulo.userservice.domain.entity.Usuario;
 import jakarta.annotation.PostConstruct;
 
 @Service
-public class UserService {
-    public static List<User> usuarios = new ArrayList<>();
+public class UsuarioService {
+    public static List<Usuario> usuarios = new ArrayList<>();
 
     @PostConstruct
     public void initiateList() {
-        User user1 = new User();
+        Usuario user1 = new Usuario();
         user1.setNome("Walter");
         user1.setCpf("123");
         user1.setEmail("walter@walter.com.br");
@@ -32,7 +32,7 @@ public class UserService {
         user1.setEnderecos(enderecoes1);
         usuarios.add(user1);
 
-        User user2 = new User();
+        Usuario user2 = new Usuario();
         user2.setNome("Walter");
         user2.setCpf("567");
         user2.setEmail("walter@walter.com.br");
@@ -51,9 +51,9 @@ public class UserService {
         
     }
 
-    public List<User> getUsers(){
+    public List<Usuario> getUsuarios(){
         if(usuarios == null){
-            return new ArrayList<User>();
+            return new ArrayList<Usuario>();
         }
         return usuarios;
     }

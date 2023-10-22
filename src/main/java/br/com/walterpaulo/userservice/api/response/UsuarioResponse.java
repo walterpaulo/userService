@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponse {
+public class UsuarioResponse {
     private Long id;
     private String nome;
     private String sobrenome;

@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import br.com.walterpaulo.userservice.api.response.UserResponse;
-import br.com.walterpaulo.userservice.domain.entity.User;
+import br.com.walterpaulo.userservice.api.response.UsuarioResponse;
+import br.com.walterpaulo.userservice.domain.entity.Usuario;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -21,11 +21,11 @@ public class UserMapper {
         this.mapper = modelMapper;
     }
 
-    public UserResponse toUserResponse(User user) {
-        return mapper.map(user, UserResponse.class);
+    public UsuarioResponse toUserResponse(Usuario user) {
+        return mapper.map(user, UsuarioResponse.class);
     }
 
-    public List<UserResponse> toUserResponseList(List<User> Users) {
+    public List<UsuarioResponse> toUserResponseList(List<Usuario> Users) {
         return Users.stream()
                 .map(this::toUserResponse)
                 .collect(Collectors.toList());
