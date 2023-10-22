@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import br.com.walterpaulo.userservice.api.response.UsuarioResponse;
 import br.com.walterpaulo.userservice.domain.entity.Usuario;
-import lombok.RequiredArgsConstructor;
 
 @Component
 public class UserMapper {
